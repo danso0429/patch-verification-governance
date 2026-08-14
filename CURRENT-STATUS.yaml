@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 10
+statusVersion: 11
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: 8
-phaseName: C0-canonical-policy-transition
+currentPhase: 9
+phaseName: C1-maturity-review
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-8-read-only-C0-cutover-audit-only
+  scope: phase-9-read-only-C1-maturity-review-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -22,13 +22,14 @@ currentPhaseAuthorization:
   statusTransitionApproved: false
 
 canonicalPolicy:
-  status: external-unresolved
+  status: session-local-conservative-C0-public-target-unresolved
   expectedPath: docs/patch-combination-verification-instructions.md
   publicPointer: docs/current/CANONICAL-POLICY-POINTER.md
   publiclyResolvable: false
 
 canonicalGate:
-  type: global-exhaustive
+  type: conservative-global-only-C0
+  currentOperationalGate: Global Exhaustive
   replacementAuthorized: false
   currentRawMaskReductionAuthorized: false
   globalFallbackRequired: true
@@ -58,12 +59,11 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-8-read-only-C0-cutover-audit
-  - audit-phase-0-through-phase-7-completion-evidence
-  - prepare-exact-L-B-G-U-support-contract
-  - prepare-exact-lane-and-fallback-rules
-  - prepare-exact-policy-governance-and-runbook-diffs
-  - prepare-rollback-command-and-policy
+  - perform-phase-9-read-only-C1-maturity-review
+  - review-full-C0-operating-history
+  - review-global-versus-local-differentials-and-incidents
+  - review-resource-storage-and-defect-yield-trends
+  - recommend-retain-C0-limited-C1-more-evidence-or-rollback
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -76,14 +76,14 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - implement-phase-8-cutover-during-entry-audit
+  - implement-any-C1-relaxation
   - issue-reusable-certificates
   - skip-canonical-executions
-  - change-canonical-policy
+  - relax-canonical-policy
   - change-cli-defaults
   - promote-experimental-results
   - hide-mismatches-or-incomplete-closure
-  - begin-phase-9
+  - change-stable-release-or-Global-Exhaustive-boundaries
 
 completedPhases:
   - number: 0
@@ -405,14 +405,64 @@ completedPhases:
       defaultChanged: false
       productionStateChanged: false
       publicationStatus: reviewed-not-published
+  - number: 8
+    name: C0-canonical-policy-transition
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    completionScope: conservative-global-only-C0
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: 79916ef4e87f1c1a547bc1edd897ed909af38e64
+      policyHash: 356dccb9438853cdb3cd7a7847385dc0072da7eeccb10c6f3ba838590918b3a2
+      sourceRoot: 5e1be7f9f7be56244ba284b6668a1a55718fc925d84d21db5968f9493764e19d
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete-global-only-C0
+      projectTests: 376-of-376-passed
+      focusedC0Tests: 11-of-11-passed
+      generatedInstallerParity: full-byte-match
+      supportContract: L0-B0-G46-U0
+      currentProductionLocalAdmissions: 0
+      currentProductionBoundaryAdmissions: 0
+      actualC0Route: Core-to-Global-Exhaustive
+      actualC0DecisionSha256: b7d59f8a141edfb8d3ac49e01b7f924c6f965a4618b363fd1e378c0eff9aa242
+      actualC0ExecutionFileSha256: 531cf07191a2fb4ab802c012d9eb5c92cedc9a7eecfbe1cd7bd4b8dc8c61255a
+      actualC0RawMasks: 4096-of-4096
+      actualC0NormalizedGraphs: 2048
+      actualC0ManagedPaths: 259
+      actualC0MaximumResolvedUnits: 669
+      actualC0RoundTrips: passed
+      actualC0WorkerSchedule: stride-v1
+      actualC0WallMs: 1642670
+      actualC0CpuMs: 1849320
+      actualC0MaximumRssKiB: 1011992
+      actualC0VerifierErrors: 0
+      actualC0SpawnError: null
+      actualC0Signal: null
+      correctnessAndBudgetSeparated: true
+      stableReleaseBlockingGlobal: true
+      emergencyReducedGateApproved: false
+      independentFallbackCommandRetained: true
+      defaultVerificationCommandChanged: false
+      productionCertificates: 0
+      currentCatalogMasksSkipped: 0
+      productionStateChanged: false
+      checkerCoreChangedSincePhase7: false
+      rollbackVerified: true
+      publicImplementationTargetResolved: false
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 8
+  checklistSection: Phase 9
 
 nextPhase:
-  number: 9
-  name: C1-maturity-review
+  number: null
+  name: none-after-maturity-review
   requiresExplicitUserApproval: true
   entryAuditApproved: false
