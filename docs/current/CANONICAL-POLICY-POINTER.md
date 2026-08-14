@@ -16,13 +16,23 @@ canonical policy.
 
 ## Current safe interpretation
 
-Until the implementation repository and policy file are resolved and read:
+The reviewed session-local implementation cohort adopted a conservative C0
+routing contract. This does not resolve the public implementation target and
+does not make this pointer a substitute for the private policy text.
+
+Until the implementation repository and policy file are publicly resolved and
+read, the only safe operational interpretation is:
 
 ```text
-canonical gate: Global Exhaustive
+canonical routing contract: conservative global-only C0
+current operational gate: Global Exhaustive
+current production L/B admissions: zero
+current G treatment: blocking Global Exhaustive
+unsupported U treatment: reject before mutation
 raw-mask reduction: not authorized
 component certificates: not authorized
 production state migration: not authorized
+default verification command change: not authorized
 Global Exhaustive fallback removal: not authorized
 ```
 

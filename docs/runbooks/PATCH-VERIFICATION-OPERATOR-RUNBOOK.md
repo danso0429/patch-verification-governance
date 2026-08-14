@@ -100,31 +100,53 @@ On first failure:
 8. classify patch/checker/cache/scheduler/harness/environment/target/policy cause;
 9. retain the original negative evidence after a fix.
 
-## 7. Current phase guard
+## 7. Conservative C0 operation
 
-Current status records experimental Phase 6 as completed and authorizes a
-read-only Phase 7 qualification-readiness audit only.
+The reviewed session-local implementation cohort uses the C0 routing contract
+in its conservative global-only form. Public implementation resolution remains
+pending in `TARGETS.yaml`; resolve and read the actual implementation policy
+before using these templates.
 
-Allowed categories:
+Current support and lane rules:
 
-- design frozen source, target and policy qualification cohorts
-- design old Global Exhaustive versus new shadow comparison
-- design mutation, corruption, boundary, history and state matrices
-- design p50, p95, p99 and safety-factor calibration
-- prepare the exact Phase 7 qualification execution plan
+- L and B have zero production admissions.
+- Every current catalog pack is G and every current selection requires
+  blocking Global Exhaustive.
+- U is rejected before mutation.
+- Local requests without an exact production admission become Extended and
+  use Global Exhaustive.
+- Extended, Core and Audit use blocking Global Exhaustive.
+- Emergency has no approved reduced route and also uses blocking Global
+  Exhaustive.
+- stable releases, disputes, inconsistent evidence and core implementation
+  changes always use Core and blocking Global Exhaustive.
+- correctness failure and budget overrun remain separate result classes.
 
-Forbidden:
+The explicit C0 entry is:
 
-- reducing raw-mask domain
-- starting the Phase 7 campaign without separate user approval
-- issuing reusable certificates or skipping canonical executions
-- modifying selection, planning, apply, status, revert or persisted state
-- component certificate publication
-- production state migration
-- default gate change
-- Global Exhaustive removal
-- changing policy/defaults or beginning Phase 8
-- phase advancement without approval
+```bash
+npm run verify:c0 -- \
+  --root /path/to/pristine/PocketRisu \
+  --lane Core \
+  --json
+```
+
+The independent default, fallback and rollback command remains:
+
+```bash
+npm run verify:combinations -- \
+  --root /path/to/pristine/PocketRisu \
+  --json
+```
+
+Do not use a C0 execution envelope as a frozen evidence receipt. Use the
+evidence wrapper and standalone receipt validator for a publishable oracle
+cohort.
+
+Phase 9 is a read-only C1 maturity review. It cannot relax policy, CLI defaults,
+stable-release rules or Global Exhaustive boundaries. Zero stable releases or
+a single frozen qualification cohort requires retaining C0 and gathering more
+evidence.
 
 ## 8. Completion report
 
@@ -137,5 +159,6 @@ evidence: publishable | non-publishable
 fallbackRequired: true | false
 ```
 
-Include changed files, tests, receipts, rollback, blockers, and a proposed—but not
-applied—status update.
+Include changed files, tests, receipts, rollback, blockers, and an independently
+approved status update. C1 review results are recommendations, not implementation
+authority.
