@@ -1,0 +1,47 @@
+{
+  "schema": "patch-verification-public-evidence-manifest-v1",
+  "generatedAt": "2026-08-14",
+  "status": "sanitized-summary-only",
+  "canonicalPolicyChangedByInvestigation": false,
+  "historicalCohort": {
+    "patcherBaseCommit": "88d882223731352a2889bda5b670b34b11aee208",
+    "targetCommit": "85a65f3137b45c8de4a8d21a9887be213b1ac3fc",
+    "targetPackage": "pocketrisu",
+    "targetVersion": "1.9.0",
+    "evidenceCut": "2026-08-14 KST"
+  },
+  "catalog": {
+    "totalPacks": 46,
+    "visiblePacks": 12,
+    "hiddenPacks": 34,
+    "rawMasks": 4096,
+    "catalogManagedPaths": 259,
+    "activeTargetPaths": 254,
+    "declaredUnits": 1184,
+    "maximumResolvedUnits": 669
+  },
+  "conclusions": {
+    "canonicalOracleRetained": true,
+    "nonIdentityExactQuotientProven": false,
+    "componentReductionCurrentlyExact": false,
+    "globalPersistedStateObstructsDecomposition": true,
+    "balancedSchedulingCanonical": false,
+    "grayCanonical": false,
+    "productionReusableCertificates": 0,
+    "mechanicalMetaClosure": "incomplete"
+  },
+  "publicArtifacts": [
+    {
+      "path": "CURRENT-EVIDENCE-INDEX.md",
+      "disposition": "current-sanitized-summary"
+    }
+  ],
+  "missingForIndependentReproduction": [
+    "public implementation repository",
+    "canonical policy text",
+    "complete source cohort",
+    "complete raw receipt registry",
+    "target source cohort"
+  ],
+  "rule": "Do not infer missing raw evidence from this summary."
+}

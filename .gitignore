@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.log
+.env
+.env.*
+!.env.example
+private/
+secrets/
+raw-private-evidence/

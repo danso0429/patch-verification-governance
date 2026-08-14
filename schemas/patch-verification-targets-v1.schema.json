@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/patch-verification-targets-v1.schema.json",
+  "title": "Patch Verification Targets v1",
+  "type": "object",
+  "required": ["schema", "publication", "implementationRepositories", "rules"],
+  "properties": {
+    "schema": { "const": "patch-verification-targets-v1" },
+    "publication": {
+      "type": "object",
+      "required": ["repository", "branch", "rawEntrypoint"],
+      "additionalProperties": true
+    },
+    "implementationRepositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "status": { "enum": ["resolved", "unresolved", "historical-only"] },
+          "repository": { "type": ["string", "null"] },
+          "branch": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

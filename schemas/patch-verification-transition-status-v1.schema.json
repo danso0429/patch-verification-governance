@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/patch-verification-transition-status-v1.schema.json",
+  "title": "Patch Verification Transition Status v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "statusVersion",
+    "currentPhase",
+    "canonicalGate",
+    "componentGate",
+    "allowedWork",
+    "forbiddenWork"
+  ],
+  "properties": {
+    "schema": { "const": "patch-verification-transition-status-v1" },
+    "statusVersion": { "type": "integer", "minimum": 1 },
+    "lastApprovedAt": { "type": "string" },
+    "currentPhase": { "type": "integer", "minimum": 0 },
+    "phaseName": { "type": "string", "minLength": 1 },
+    "phaseAdvancementApproved": { "type": "boolean" },
+    "canonicalGate": {
+      "type": "object",
+      "required": ["type", "replacementAuthorized", "globalFallbackRequired"],
+      "properties": {
+        "type": { "type": "string" },
+        "replacementAuthorized": { "type": "boolean" },
+        "currentRawMaskReductionAuthorized": { "type": "boolean" },
+        "globalFallbackRequired": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "componentGate": {
+      "type": "object",
+      "required": ["status", "canonical", "certificatePublicationAllowed"],
+      "additionalProperties": true
+    },
+    "allowedWork": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "forbiddenWork": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true
+}

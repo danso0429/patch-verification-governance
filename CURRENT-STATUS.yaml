@@ -1,0 +1,81 @@
+schema: patch-verification-transition-status-v1
+statusVersion: 1
+lastApprovedAt: 2026-08-14
+
+publication:
+  repository: danso0429/patch-verification-governance
+  branch: main
+  mode: dedicated-public-governance-repository
+  publicationStatus: prepared-not-yet-confirmed
+
+currentPhase: 0
+phaseName: current-correctness-and-oracle-freeze
+phaseAdvancementApproved: false
+
+canonicalPolicy:
+  status: external-unresolved
+  expectedPath: docs/patch-combination-verification-instructions.md
+  publicPointer: docs/current/CANONICAL-POLICY-POINTER.md
+  publiclyResolvable: false
+
+canonicalGate:
+  type: global-exhaustive
+  replacementAuthorized: false
+  currentRawMaskReductionAuthorized: false
+  globalFallbackRequired: true
+
+componentGate:
+  status: not-implemented
+  canonical: false
+  certificatePublicationAllowed: false
+  productionStateMigrationAllowed: false
+
+approvedDecisions:
+  supportContract: tiered-L-B-G-U
+  stateStrategy:
+    - S0-P-read-only-projection
+    - S1-D-dual-write-shadow
+    - S2-component-local-canonical
+  operationProfile:
+    current: pre-transition-global-exhaustive
+    transitionCandidate: C0
+    matureCandidate: C1
+  workerHistoryReference: H2-fresh-per-local-mask
+  boundaryStrategy: typed-contract-then-component-union
+  effectStrategy: manifest-plus-capability-enforcement-with-declarative-IR-preferred
+  firstVerificationAlgorithm: affected-component-local-exhaustive
+  certificateModel: component-manifest-with-per-mask-merkle-leaves
+  evidenceStore: content-addressed-with-protected-negative-evidence
+  independentCertificateVerifierRequired: true
+
+allowedWork:
+  - separate-cache-correctness-fix
+  - preserve-focused-regressions
+  - document-worker-history
+  - freeze-source-target-policy-evidence
+  - improve-receipt-dispositions
+  - fix-target-identity-validation
+  - classify-runtime-envelope-fields
+  - prepare-governance-documents
+
+forbiddenWork:
+  - skip-global-raw-masks
+  - replace-canonical-gate
+  - publish-component-certificates
+  - reuse-prospective-certificate-keys
+  - migrate-production-state
+  - change-default-verification-command
+  - remove-global-exhaustive-fallback
+  - advance-phase-without-user-approval
+  - treat-shadow-state-as-canonical
+  - treat-incomplete-evidence-as-pass
+
+phaseCompletion:
+  approved: false
+  planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
+  checklistSection: Phase 0
+
+nextPhase:
+  number: 1
+  name: inventory-and-capability-classification
+  requiresExplicitUserApproval: true

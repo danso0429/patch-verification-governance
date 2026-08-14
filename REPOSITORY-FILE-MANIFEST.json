@@ -1,0 +1,152 @@
+{
+  "schema": "patch-verification-governance-file-manifest-v1",
+  "generatedAt": "2026-08-14",
+  "algorithm": "sha256",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 104,
+      "sha256": "53a7eff11d558b9cb2a4e4825e62fdad4fa58f1613cce155ec11644cd98d6e68"
+    },
+    {
+      "path": "BOOTSTRAP-PROMPT.md",
+      "bytes": 1529,
+      "sha256": "e888edc18d86fd1b8c48642a60a361245047c0252041447bfa9e73a8e573a0f8"
+    },
+    {
+      "path": "CURRENT-STATUS.yaml",
+      "bytes": 2487,
+      "sha256": "531a9d681fa1e3ef301f7bf10108adb0ec6af1d2c77b1da627c27b8da8e1efad"
+    },
+    {
+      "path": "LLM-ENTRYPOINT.md",
+      "bytes": 5311,
+      "sha256": "01dd9e258106c28b4b408eec8a0c297331e4fcca518801573a6ef78fb1e3330b"
+    },
+    {
+      "path": "PUBLISHING.md",
+      "bytes": 1063,
+      "sha256": "12b0ccdc3e238121a51f1629fd5670b1cdc7c2348306e3463803ebbbba18ac7b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3001,
+      "sha256": "060327333ce7ede8787c62df110dcf67900320ea926d0ee86be654ce2e0c3a8c"
+    },
+    {
+      "path": "TARGETS.yaml",
+      "bytes": 1683,
+      "sha256": "2c6cedbb99063eca725ae2dd5db2e142ce219c84a49a64ddec5eeaceb73292a1"
+    },
+    {
+      "path": "archive/README.md",
+      "bytes": 250,
+      "sha256": "3b6ce80d340f4d30d6e5c6ff079ba99ffe989fa5f20c25f4fe5cbf57cb3d6789"
+    },
+    {
+      "path": "archive/historical-plans/README.md",
+      "bytes": 165,
+      "sha256": "e5be4eec59e079f7e081e22c88d1a452cfdef75f4649242ca58585feb8a95807"
+    },
+    {
+      "path": "archive/rejected-experiments/README.md",
+      "bytes": 377,
+      "sha256": "1e227d6223b1fbba9a3446cc3751764bd7ab13838ff4f0d408b525877e68dea9"
+    },
+    {
+      "path": "archive/superseded-guidance/README.md",
+      "bytes": 158,
+      "sha256": "3ed314fb726e9356c9bea549cad61048e34a52fd35f68a81509949eb0aed66b0"
+    },
+    {
+      "path": "decisions/ADR-0001-tiered-capability-contract.md",
+      "bytes": 1072,
+      "sha256": "e096ea77c0f99385fc678969b2ac009be6209b645cf167a01a5f178fc1d12e26"
+    },
+    {
+      "path": "decisions/ADR-0002-state-transition-strategy.md",
+      "bytes": 1081,
+      "sha256": "a43daae5273f1229ea7a054c7bfefcabf9f325bb3733012bdf488422ccfc63fb"
+    },
+    {
+      "path": "decisions/ADR-0003-worker-history-policy.md",
+      "bytes": 898,
+      "sha256": "f47888a88647b6aa17c2c637dcef7aca56116f9f888eb22e8b992a0b65016ad5"
+    },
+    {
+      "path": "decisions/ADR-0004-global-oracle-boundaries.md",
+      "bytes": 784,
+      "sha256": "545b6f04ae2fdafcdc20223e2412bbe54d55170a756d4c031cb81c88482f8c63"
+    },
+    {
+      "path": "decisions/ADR-0005-boundary-contracts-and-fallback.md",
+      "bytes": 918,
+      "sha256": "d2cec1f7b553afbd803aad4ab99d9408739a6330797f8153a82c086339d13792"
+    },
+    {
+      "path": "decisions/ADR-0006-certificate-and-evidence-model.md",
+      "bytes": 903,
+      "sha256": "f3edac6fa52bd7e38ac8e91c1247842ec19f393ff180b620e085101a5aae546a"
+    },
+    {
+      "path": "decisions/README.md",
+      "bytes": 542,
+      "sha256": "7a0f0356f86a6ef66ffc00454741638cdc0a61eefffc0d6eb0551fa8cc638c77"
+    },
+    {
+      "path": "docs/current/CANONICAL-POLICY-POINTER.md",
+      "bytes": 1257,
+      "sha256": "838ca23082dee0fe3de7f87c0742b69b9c95c60e28d018c861f1afa45db298fe"
+    },
+    {
+      "path": "docs/guides/PATCH-COMBINATION-CHECKER-REVISED-GUIDANCE.md",
+      "bytes": 6771,
+      "sha256": "91f35e5896c40eab6abe4deaa1fcf51d54dba5b09ceab56e1583cdc1c2ddd80b"
+    },
+    {
+      "path": "docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md",
+      "bytes": 22113,
+      "sha256": "f61e1e1db07d7a2b378ab06dbe1fc9dd0254189217b1e712581e8b5226e9d8f2"
+    },
+    {
+      "path": "docs/runbooks/PATCH-VERIFICATION-OPERATOR-RUNBOOK.md",
+      "bytes": 3601,
+      "sha256": "49f1915ac1dc6dfbd77fb636042b6807ffd01a86db9392fb5606f3a328894b2d"
+    },
+    {
+      "path": "evidence/CURRENT-EVIDENCE-INDEX.md",
+      "bytes": 3481,
+      "sha256": "891aaebabe2fc01ae7695ceb93391b2f64bf16e2638c19104d06dfe3bd594a58"
+    },
+    {
+      "path": "evidence/PUBLIC-EVIDENCE-MANIFEST.json",
+      "bytes": 1448,
+      "sha256": "446f243696c00256f44ca03c4957508e72d6d280fa10f95cf2bfb46a27326cea"
+    },
+    {
+      "path": "prompts/PHASE-TASK-TEMPLATE.md",
+      "bytes": 720,
+      "sha256": "100610182bdf73a5f1a9de64c1fc333e3be59f904e0e0f715b20be0179a139a9"
+    },
+    {
+      "path": "prompts/ROUTINE-CHECK-TEMPLATE.md",
+      "bytes": 548,
+      "sha256": "a2db1704c105e66811234e2625fefa26e7e3653d7b7a0104b6b9dc15fc138340"
+    },
+    {
+      "path": "schemas/patch-verification-targets-v1.schema.json",
+      "bytes": 1080,
+      "sha256": "7912b64cee52f609915ca0d2bb41435acd2d7e6781bdd95f62052891f5a10c17"
+    },
+    {
+      "path": "schemas/patch-verification-transition-status-v1.schema.json",
+      "bytes": 1588,
+      "sha256": "7f76ea636c87bccfb678f01536dd581a424bd5a8b7512cf70d887c46610110a3"
+    },
+    {
+      "path": "scripts/publish-with-gh.sh",
+      "bytes": 555,
+      "sha256": "632f40a561286fde9efb3c51a09459ef89028f87df7c278d6be4c2f6490ed561"
+    }
+  ]
+}

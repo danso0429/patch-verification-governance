@@ -1,0 +1,41 @@
+schema: patch-verification-targets-v1
+
+publication:
+  repository: danso0429/patch-verification-governance
+  branch: main
+  rawEntrypoint: https://raw.githubusercontent.com/danso0429/patch-verification-governance/main/LLM-ENTRYPOINT.md
+
+implementationRepositories:
+  - id: pocketrisu-patcher
+    status: unresolved
+    repository: null
+    branch: null
+    expectedCanonicalPolicyPath: docs/patch-combination-verification-instructions.md
+    expectedCheckerPath: scripts/verify-all-combinations.cjs
+    historicalLocalIdentifier: nai-studio-2
+    historicalBaseCommit: 88d882223731352a2889bda5b670b34b11aee208
+    warning: >-
+      The public repository danso0429/nai-studio main branch has not been
+      verified as the patcher implementation repository. Do not use it as the
+      implementation target merely because it hosts this governance branch.
+
+referenceTargets:
+  - id: pocketrisu-1.9.0-audit
+    status: historical-evidence-only
+    repository: null
+    historicalCommit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+    package: pocketrisu
+    version: 1.9.0
+
+rules:
+  - Governance documents define approved intent, status, and transition constraints.
+  - The implementation repository defines executable behavior.
+  - Do not modify source until the implementation repository is explicitly resolved.
+  - Do not silently map an unrelated public repository to the historical local identifier.
+  - Record exact commits from governance and implementation repositories before work.
+  - A governance plan never overrides contradictory executable source silently.
+
+resolutionRequired:
+  implementationRepository: true
+  canonicalPolicyFile: true
+  currentImplementationCommit: true
