@@ -3,12 +3,12 @@
 이 저장소는 PocketRisu patch-combination checker의 검증 정책, 전환 상태,
 장기 아키텍처와 LLM 작업 진입점을 공개적으로 보관합니다.
 
-> **현재 상태:** Phase 3B 완료 승인, Phase 4 read-only entry audit 허가
+> **현재 상태:** Phase 4 완료 승인, Phase 5 read-only entry audit 허가
 >
 > 이 문서 저장소만으로 checker의 실제 구현이나 정본 정책이 자동으로
 > 바뀌지 않습니다. 현재 canonical gate는 여전히 Global Exhaustive이며,
 > `CURRENT-STATUS.yaml`과 실제 구현 저장소의 canonical policy가 명시적으로
-> 바뀌기 전에는 다른 방식이 이를 대체하지 않습니다. Phase 4 S1-D shadow state
+> 바뀌기 전에는 다른 방식이 이를 대체하지 않습니다. Phase 5 S2 state design
 > 구현은 아직 승인되지 않았습니다.
 
 ## LLM 진입점
@@ -27,7 +27,7 @@ Read and follow this entrypoint completely:
 https://raw.githubusercontent.com/danso0429/patch-verification-governance/main/LLM-ENTRYPOINT.md
 
 Task:
-Perform a read-only Phase 4 entry audit only. Do not implement it.
+Perform a read-only Phase 5 entry audit only. Do not implement or migrate state.
 ```
 
 ## 먼저 읽을 파일

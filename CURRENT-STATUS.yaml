@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 6
+statusVersion: 7
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: 4
-phaseName: S1-D-dual-write-shadow-state
+currentPhase: 5
+phaseName: S2-component-local-canonical-state
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-4-read-only-entry-audit-only
+  scope: phase-5-read-only-entry-audit-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -58,12 +58,12 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-4-read-only-entry-audit
-  - audit-current-global-state-schema-and-serializers
-  - design-S1-D-shadow-record-schema
-  - design-dual-read-semantic-comparison
-  - design-interruption-recovery-and-rollback
-  - prepare-phase-4-implementation-plan
+  - perform-phase-5-read-only-entry-audit
+  - design-S2-component-record-and-registry-schema
+  - design-component-identity-split-merge-versioning
+  - design-isolated-migration-and-exact-rollback
+  - design-multi-component-transaction-and-recovery
+  - prepare-isolated-phase-5A-prototype-plan
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -76,14 +76,15 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - implement-phase-4-without-separate-user-approval
+  - implement-phase-5A-without-separate-user-approval
   - issue-reusable-certificates
   - skip-canonical-executions
-  - make-component-state-canonical
-  - write-production-user-state
-  - use-component-state-to-skip-transactions
-  - remove-or-reinterpret-global-state
-  - begin-phase-5
+  - activate-S2-as-production-canonical-state
+  - migrate-real-user-state
+  - change-default-production-serializer
+  - remove-S0-fallback
+  - begin-phase-5B-automatically
+  - begin-phase-6
 
 completedPhases:
   - number: 0
@@ -248,14 +249,47 @@ completedPhases:
       canonicalMasksSkipped: 0
       productionStateWritten: false
       publicationStatus: reviewed-not-published
+  - number: 4
+    name: S1-D-dual-write-shadow-state
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: 5b78c8fb95f60a107cb22761d37db681410787ce
+      policyHash: 53a70ab5acb79847343e4aca428cae175fc2ed2c6f11b71121a7d274d6e2248d
+      sourceRoot: 72588761c305b6e896dd050278272e0461cb0fac75b20d9b73ef741004d23f30
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete
+      projectTests: 356-of-356-passed
+      focusedS1DTests: 3-of-3-passed
+      syntheticComponents: 2
+      currentCatalogComponents: 1
+      currentCatalogUnits: 669
+      currentCatalogManagedPaths: 254
+      globalStateSha256: 549dc2f28f49c2b2394868e10dab3a1808671532d88c9d7acc9403dd381ef7f5
+      shadowReceiptSha256: 7744bd6a6454a8cd761d51ee9142c47575ca547d226770671abaeb2adda733f0
+      shadowReceiptFileSha256: b2b68facd95761f8df189e38a548e3f03d6b0a7c8bb70bbbe179ed434fcffbfe
+      shadowEvidenceBytes: 3726158
+      dualReadSemanticMismatch: 0
+      corruptionAndCoverageFixtures: passed
+      interruptionRecovery: passed
+      productionStateWritten: false
+      certificatesIssued: 0
+      canonicalMasksSkipped: 0
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 4
+  checklistSection: Phase 5
 
 nextPhase:
-  number: 5
-  name: S2-component-local-canonical-state
+  number: 6
+  name: exact-certificate-store-and-independent-verifier
   requiresExplicitUserApproval: true
   entryAuditApproved: false
