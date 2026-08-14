@@ -100,27 +100,30 @@ On first failure:
 8. classify patch/checker/cache/scheduler/harness/environment/target/policy cause;
 9. retain the original negative evidence after a fix.
 
-## 7. Phase 0 guard
+## 7. Current phase guard
 
-Current status authorizes Phase 0 preparation only.
+Current status records Phase 0 as completed and authorizes a read-only Phase 1
+entry audit only. It does not authorize Phase 1 implementation.
 
 Allowed categories:
 
-- isolate cache correctness fix
-- preserve focused regression
-- document worker history
-- freeze source/target/policy evidence
-- improve receipt dispositions
-- correct target identity validation
-- classify runtime-envelope fields
+- inspect current effect-inventory surfaces
+- design the effect-manifest schema and inventory compiler
+- design the S0-P read-only projection
+- design candidate L/B/G/U classification
+- prepare the exact Phase 1 implementation scope, tests and rollback boundaries
 
 Forbidden:
 
 - reducing raw-mask domain
+- implementing Phase 1 without separate user approval
+- enforcing capabilities
+- modifying selection, planning, apply, status, revert or persisted state
 - component certificate publication
 - production state migration
 - default gate change
 - Global Exhaustive removal
+- beginning Phase 2
 - phase advancement without approval
 
 ## 8. Completion report

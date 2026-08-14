@@ -1,6 +1,6 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 1
-lastApprovedAt: 2026-08-14
+statusVersion: 2
+lastApprovedAt: "2026-08-15"
 
 publication:
   repository: danso0429/patch-verification-governance
@@ -8,9 +8,18 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: 0
-phaseName: current-correctness-and-oracle-freeze
-phaseAdvancementApproved: false
+currentPhase: 1
+phaseName: inventory-and-classification
+currentPhaseStage: entry-audit-authorized
+phaseAdvancementApproved: true
+
+currentPhaseAuthorization:
+  scope: phase-1-read-only-entry-audit-only
+  governanceStatusLag: false
+  entryAuditApproved: true
+  implementationApproved: false
+  closureAuditApproved: false
+  statusTransitionApproved: false
 
 canonicalPolicy:
   status: external-unresolved
@@ -49,14 +58,13 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - separate-cache-correctness-fix
-  - preserve-focused-regressions
-  - document-worker-history
-  - freeze-source-target-policy-evidence
-  - improve-receipt-dispositions
-  - fix-target-identity-validation
-  - classify-runtime-envelope-fields
-  - prepare-governance-documents
+  - perform-phase-1-read-only-entry-audit
+  - inspect-effect-inventory-surfaces
+  - design-effect-manifest-schema
+  - design-inventory-compiler
+  - design-S0-P-read-only-projection
+  - design-L-B-G-U-candidate-classification
+  - prepare-phase-1-implementation-plan
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -69,13 +77,44 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
+  - implement-phase-1-without-separate-user-approval
+  - enforce-capabilities
+  - modify-selection-planning-apply-status-revert-or-state
+  - begin-phase-2
+
+completedPhases:
+  - number: 0
+    name: current-correctness-and-oracle-freeze
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-instruction
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: d04b2d0e8800d22d219d1065d58f44c9ceb9bb5f
+      policyHash: 9595547f8c68a82597a63bbf9acf8d9e14d5657012a432fc1080ad749abacc79
+      sourceRoot: 7b9b006145caa7affd4de64c54956480df1113504e9c355166618e38061df944
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete
+      projectTests: 44-of-44-passed
+      globalRawMasks: 4096-of-4096
+      cacheDifferentialComparisons: 12288
+      cacheDifferentialMismatches: 0
+      globalReceiptSha256: 8627084bf457c556844ffad1cb537e8bded670fb57736d9c5a6b6689b1facabc
+      cacheDifferentialReceiptSha256: 6e17336bae6eb6237129577d6d4a4b6d28671db2c82c63b3e0ee739a1e497feb
+      dispositionRegistrySha256: 19aa29ea203af2bae9d9a8d3016a0d7bfb8fa3943334943895ff6589cfc29b48
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 0
+  checklistSection: Phase 1
 
 nextPhase:
-  number: 1
-  name: inventory-and-capability-classification
+  number: 2
+  name: capability-engine-and-hypergraph
   requiresExplicitUserApproval: true
+  entryAuditApproved: false
