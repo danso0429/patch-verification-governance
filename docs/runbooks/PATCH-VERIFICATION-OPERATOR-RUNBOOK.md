@@ -102,28 +102,28 @@ On first failure:
 
 ## 7. Current phase guard
 
-Current status records Phase 4 as completed and authorizes a read-only Phase 5
-entry audit only. It does not authorize Phase 5 implementation or migration.
+Current status records isolated Phase 5 as completed and authorizes a read-only
+Phase 6 entry audit only. It does not authorize certificate implementation.
 
 Allowed categories:
 
-- design S2 records, aggregate registry and compatibility projection
-- design component identity, split, merge and local ETag versioning
-- design isolated migration, multi-component transaction and recovery
-- design exact rollback without touching production user data
-- prepare the exact isolated Phase 5A scope, tests and rollback boundaries
+- audit every exact certificate key input and complete read set
+- design immutable content-addressed certificates and Merkle leaves
+- design independent verification, replay and invalidation
+- design corruption, truncation, retention and dry-run GC behavior
+- prepare the exact Phase 6A scope, tests and rollback boundaries
 
 Forbidden:
 
 - reducing raw-mask domain
-- implementing Phase 5A without separate user approval
+- implementing Phase 6A without separate user approval
 - issuing reusable certificates or skipping canonical executions
 - modifying selection, planning, apply, status, revert or persisted state
 - component certificate publication
 - production state migration
 - default gate change
 - Global Exhaustive removal
-- activating production migration or beginning Phase 6
+- skipping work from certificates or beginning Phase 7
 - phase advancement without approval
 
 ## 8. Completion report
