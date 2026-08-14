@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 9
+statusVersion: 10
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: 7
-phaseName: long-shadow-qualification-and-60-second-calibration
+currentPhase: 8
+phaseName: C0-canonical-policy-transition
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-7-read-only-qualification-readiness-audit-only
+  scope: phase-8-read-only-C0-cutover-audit-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -34,7 +34,7 @@ canonicalGate:
   globalFallbackRequired: true
 
 componentGate:
-  status: not-implemented
+  status: experimental-shadow-only
   canonical: false
   certificatePublicationAllowed: false
   productionStateMigrationAllowed: false
@@ -58,12 +58,12 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-7-read-only-qualification-readiness-audit
-  - design-frozen-source-target-policy-cohorts
-  - design-old-versus-new-comparison-matrix
-  - design-mutation-adversarial-and-failure-injection-matrix
-  - design-p50-p95-p99-and-safety-factor-calibration
-  - prepare-phase-7-qualification-plan
+  - perform-phase-8-read-only-C0-cutover-audit
+  - audit-phase-0-through-phase-7-completion-evidence
+  - prepare-exact-L-B-G-U-support-contract
+  - prepare-exact-lane-and-fallback-rules
+  - prepare-exact-policy-governance-and-runbook-diffs
+  - prepare-rollback-command-and-policy
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -76,14 +76,14 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - start-phase-7-campaign-without-separate-user-approval
+  - implement-phase-8-cutover-during-entry-audit
   - issue-reusable-certificates
   - skip-canonical-executions
   - change-canonical-policy
   - change-cli-defaults
   - promote-experimental-results
   - hide-mismatches-or-incomplete-closure
-  - begin-phase-8
+  - begin-phase-9
 
 completedPhases:
   - number: 0
@@ -353,14 +353,66 @@ completedPhases:
       currentCatalogMasksSkipped: 0
       canonicalGateChanged: false
       publicationStatus: reviewed-not-published
+  - number: 7
+    name: long-shadow-qualification-and-60-second-calibration
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    completionScope: conservative-global-only-C0
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: 000cf9b73d36487d1abcb90a883dbf45b5515989
+      policyHash: 1cb1ed972241b7027d89a4b9cb790d6f5e651f3a31676502d980f73b22ee7a14
+      sourceRoot: 5e9bec20589d57365983d655cdd4880c0b1b08d038c0494a9b5ecbff63df4eed
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete-global-only-scope
+      projectTests: 365-of-365-passed
+      focusedQualificationTests: 2-of-2-passed
+      canonicalGlobalRawMasks: 4096-of-4096
+      canonicalGlobalNormalizedGraphs: 2048
+      canonicalGlobalManagedPaths: 259
+      canonicalGlobalMaximumResolvedUnits: 669
+      canonicalGlobalRoundTrips: passed
+      oracleSemanticMismatches: 0
+      globalReceiptPayloadSha256: b7e5d0b0bc9b372a28e01d424ae1516334e6b3a2bd607a1310bdd94baa08ac9b
+      globalReceiptFileSha256: 2ed722888de584f0bd738defc4b25bc24eece97448466d3c1f2e1749632a7e65
+      qualificationReceiptSha256: 46b51185471e2a45383c5593d278f1243f5faa8ce3e898a125e0b6429db7dbf1
+      qualificationFileSha256: 1dbd3a38e153fcb68d27c5b3e13bf7df90f8ef3f5803bbef58968e306b90dac0
+      qualificationStatus: passed-global-only
+      qualificationDuration: single-frozen-cohort
+      stableReleasesUnderCandidateC0: 0
+      productionLocalClassesAdmitted: 0
+      localCutoverQualified: false
+      globalOnlyC0Qualified: true
+      oracleFailureMisses: 0
+      certificateFalseHits: 0
+      undeclaredAccessFalseSuccesses: 0
+      boundaryMisses: 0
+      stateMigrationRecoveryDefects: 0
+      targetIntegrityCleanupFailures: 0
+      globalWallMs: 1687230
+      globalCpuMs: 1856350
+      globalMaximumRssKiB: 1041944
+      globalFilesystemOutputBlocks: 132950232
+      safetyFactor: 2
+      productionCertificates: 0
+      currentCatalogMasksSkipped: 0
+      canonicalGateChanged: false
+      defaultChanged: false
+      productionStateChanged: false
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 7
+  checklistSection: Phase 8
 
 nextPhase:
-  number: 8
-  name: C0-canonical-policy-transition
+  number: 9
+  name: C1-maturity-review
   requiresExplicitUserApproval: true
   entryAuditApproved: false
