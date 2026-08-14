@@ -102,28 +102,28 @@ On first failure:
 
 ## 7. Current phase guard
 
-Current status records Phase 3A as completed and authorizes a read-only Phase 3B
-entry audit only. It does not authorize Phase 3B implementation.
+Current status records Phase 3B as completed and authorizes a read-only Phase 4
+entry audit only. It does not authorize Phase 4 implementation.
 
 Allowed categories:
 
-- formalize every compositional-admission premise
-- map premises to source, runtime enforcement and independent validation
-- design typed boundary-class join, enumeration and fallback
-- design adversarial omitted-premise fixtures
-- prepare the exact Phase 3B implementation scope, tests and rollback boundaries
+- audit the current global-state schema and serializers
+- design isolated S1-D shadow records and dual-read comparison
+- design ETag, status, re-plan, revert, journal and recovery comparison
+- design exact rollback without touching production user data
+- prepare the exact Phase 4 implementation scope, tests and rollback boundaries
 
 Forbidden:
 
 - reducing raw-mask domain
-- implementing Phase 3B without separate user approval
+- implementing Phase 4 without separate user approval
 - issuing reusable certificates or skipping canonical executions
 - modifying selection, planning, apply, status, revert or persisted state
 - component certificate publication
 - production state migration
 - default gate change
 - Global Exhaustive removal
-- beginning Phase 4
+- beginning Phase 5
 - phase advancement without approval
 
 ## 8. Completion report

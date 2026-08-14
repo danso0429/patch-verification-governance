@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 5
+statusVersion: 6
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: "3B"
-phaseName: compositional-theorem-qualification
+currentPhase: 4
+phaseName: S1-D-dual-write-shadow-state
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-3B-read-only-entry-audit-only
+  scope: phase-4-read-only-entry-audit-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -58,12 +58,12 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-3B-read-only-entry-audit
-  - formalize-compositional-admission-premises
-  - design-machine-readable-premise-evidence
-  - design-independent-theorem-validation
-  - design-join-enumerate-and-fallback-rules
-  - prepare-phase-3B-implementation-plan
+  - perform-phase-4-read-only-entry-audit
+  - audit-current-global-state-schema-and-serializers
+  - design-S1-D-shadow-record-schema
+  - design-dual-read-semantic-comparison
+  - design-interruption-recovery-and-rollback
+  - prepare-phase-4-implementation-plan
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -76,13 +76,14 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - implement-phase-3B-without-separate-user-approval
+  - implement-phase-4-without-separate-user-approval
   - issue-reusable-certificates
   - skip-canonical-executions
-  - treat-unverifiable-theorem-premise-as-success
-  - treat-one-boundary-snapshot-as-all-boundaries
-  - migrate-state
-  - begin-phase-4
+  - make-component-state-canonical
+  - write-production-user-state
+  - use-component-state-to-skip-transactions
+  - remove-or-reinterpret-global-state
+  - begin-phase-5
 
 completedPhases:
   - number: 0
@@ -217,14 +218,44 @@ completedPhases:
       canonicalMasksSkipped: 0
       productionStateWritten: false
       publicationStatus: reviewed-not-published
+  - number: "3B"
+    name: compositional-theorem-qualification
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: e39f171250248e1aef3897d0e736e07f87648c4f
+      policyHash: 6eb54e9b63470791711d8479ed6fb8a101ab3500db9cf6010546edad883dbfc1
+      sourceRoot: f8a23bd21b4fb5a2c702959dd0ae0d9ffa19984b0c8e33eefd70be350a9a04a3
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete
+      projectTests: 353-of-353-passed
+      focusedTheoremTests: 4-of-4-passed
+      requiredPremises: 11
+      syntheticComponentAdmission: passed
+      typedBoundaryInputClasses: 2-of-2
+      hiddenInteractionMergeInvalidation: passed
+      currentCatalogPremisesVerified: 0-of-11
+      currentCatalogOutcome: global-fallback
+      theoremReceiptSha256: 968222d44815dc1b9cf3ae72f2b10c047412dd3c717d6dc6ec75a79d4d2ed28b
+      theoremReceiptFileSha256: e801918d338dc74cb590c12b6535ca85c35af40771f5e2975c9e7e38ed94c9f3
+      certificatesIssued: 0
+      canonicalMasksSkipped: 0
+      productionStateWritten: false
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 3B
+  checklistSection: Phase 4
 
 nextPhase:
-  number: 4
-  name: S1-D-dual-write-shadow-state
+  number: 5
+  name: S2-component-local-canonical-state
   requiresExplicitUserApproval: true
   entryAuditApproved: false
