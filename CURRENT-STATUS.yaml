@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 11
+statusVersion: 12
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -10,16 +10,16 @@ publication:
 
 currentPhase: 9
 phaseName: C1-maturity-review
-currentPhaseStage: entry-audit-authorized
-phaseAdvancementApproved: true
+currentPhaseStage: maturity-review-completed-requires-further-evidence
+phaseAdvancementApproved: false
 
 currentPhaseAuthorization:
-  scope: phase-9-read-only-C1-maturity-review-only
+  scope: phase-9-review-completed-no-C1-relaxation-authorized
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
-  closureAuditApproved: false
-  statusTransitionApproved: false
+  closureAuditApproved: true
+  statusTransitionApproved: true
 
 canonicalPolicy:
   status: session-local-conservative-C0-public-target-unresolved
@@ -59,11 +59,10 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-9-read-only-C1-maturity-review
-  - review-full-C0-operating-history
-  - review-global-versus-local-differentials-and-incidents
-  - review-resource-storage-and-defect-yield-trends
-  - recommend-retain-C0-limited-C1-more-evidence-or-rollback
+  - operate-conservative-global-only-C0
+  - collect-additional-stable-release-history
+  - collect-additional-differential-incident-resource-and-defect-yield-evidence
+  - repeat-read-only-C1-maturity-review-after-material-new-evidence
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -84,6 +83,7 @@ forbiddenWork:
   - promote-experimental-results
   - hide-mismatches-or-incomplete-closure
   - change-stable-release-or-Global-Exhaustive-boundaries
+  - claim-C1-maturity-from-zero-stable-releases-or-one-C0-cohort
 
 completedPhases:
   - number: 0
@@ -455,9 +455,78 @@ completedPhases:
       rollbackVerified: true
       publicImplementationTargetResolved: false
       publicationStatus: reviewed-not-published
+  - number: 9
+    name: C1-maturity-review
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    reviewOnly: true
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: 79916ef4e87f1c1a547bc1edd897ed909af38e64
+      policyHash: 356dccb9438853cdb3cd7a7847385dc0072da7eeccb10c6f3ba838590918b3a2
+    evidence:
+      closureResult: maturity-review-complete
+      reviewArtifactSha256: 51e923e72c4f6a9455717a9ff5358c092dde12e7aea834a30a2fa2d0c464e001
+      stableReleasesUnderC0: 0
+      actualC0OperatingCohorts: 1
+      productionLocalAdmissions: 0
+      productionBoundaryAdmissions: 0
+      productionCertificatesAccepted: 0
+      productionMasksSkipped: 0
+      globalVersusLocalMismatches: 0
+      certificateFalseHits: 0
+      undeclaredAccessIncidents: 0
+      boundaryMisses: 0
+      stateMigrationRecoveryIncidents: 0
+      mutationRegressions: 0
+      targetIntegrityIncidents: 0
+      catalogPacks: 46
+      preFallbackLocalComponentWidths:
+        - 45
+        - 1
+      postFallbackComponentWidths:
+        - 46
+      globalConnectorsRemain: true
+      phase7GlobalWallMs: 1687230
+      phase8C0GlobalWallMs: 1642670
+      resourceTrendQualified: false
+      C0GlobalDefectsDetected: 0
+      defectYieldTrendQualified: false
+      relaxationCandidates: 0
+      recommendation: require-further-evidence
+      retainC0Unchanged: true
+      policyChanged: false
+      cliDefaultsChanged: false
+      globalBoundariesRelaxed: false
+
+phase9Review:
+  result: require-further-evidence
+  retainC0Unchanged: true
+  C1RelaxationAuthorized: false
+  exactReason:
+    - zero-stable-releases-under-C0
+    - one-actual-C0-operating-cohort
+    - zero-production-local-or-boundary-admissions
+    - one-global-46-pack-component-remains
+    - no-qualified-resource-or-defect-yield-trend
+  requiredBeforeAnotherReview:
+    - multiple-stable-releases-under-C0
+    - additional-compatible-global-and-candidate-cohorts
+    - real-production-admission-history-if-any-local-or-boundary-class-is-proposed
+    - longer-incident-resource-storage-and-defect-yield-history
+  canonicalProtection:
+    routingContract: conservative-global-only-C0
+    currentOperationalGate: Global Exhaustive
+    stableReleaseBlockingGlobal: true
+    independentFallbackRetained: true
+    productionCertificates: 0
+    masksSkipped: 0
+    productionStateMigrationActivated: false
 
 phaseCompletion:
-  approved: false
+  approved: true
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
   checklistSection: Phase 9
 
