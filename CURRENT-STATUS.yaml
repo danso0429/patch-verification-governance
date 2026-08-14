@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 4
+statusVersion: 5
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: "3A"
-phaseName: fresh-isolated-S0-P-shadow-verifier
+currentPhase: "3B"
+phaseName: compositional-theorem-qualification
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-3A-read-only-entry-audit-only
+  scope: phase-3B-read-only-entry-audit-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -58,12 +58,12 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-3A-read-only-entry-audit
-  - design-fresh-projected-target-per-local-mask
-  - design-fresh-process-module-cache-and-unmanaged-history
-  - design-local-mask-and-boundary-class-coverage
-  - map-shadow-observations-to-current-canonical-contract
-  - prepare-phase-3A-implementation-plan
+  - perform-phase-3B-read-only-entry-audit
+  - formalize-compositional-admission-premises
+  - design-machine-readable-premise-evidence
+  - design-independent-theorem-validation
+  - design-join-enumerate-and-fallback-rules
+  - prepare-phase-3B-implementation-plan
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -76,13 +76,13 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - implement-phase-3A-without-separate-user-approval
+  - implement-phase-3B-without-separate-user-approval
   - issue-reusable-certificates
   - skip-canonical-executions
-  - reuse-persistent-worker-history-for-local-reference
-  - treat-S0-P-projection-as-canonical-state
-  - infer-one-boundary-snapshot-represents-all-boundaries
-  - begin-phase-3B
+  - treat-unverifiable-theorem-premise-as-success
+  - treat-one-boundary-snapshot-as-all-boundaries
+  - migrate-state
+  - begin-phase-4
 
 completedPhases:
   - number: 0
@@ -183,14 +183,48 @@ completedPhases:
       canonicalMasksSkipped: 0
       publicationStatus: reviewed-not-published
       diagnosticEnvelopeFinding: managed-sandbox-nested-permission-workers-time-out-but-approved-runtime-envelope-passes
+  - number: "3A"
+    name: fresh-isolated-S0-P-shadow-verifier
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: 6d5c558da4a4a01fa8b763b8768d936de757d6b3
+      policyHash: 02e441d69d79411403c92ec5119438a84037af070e0aa52d9f40ce6bf8c178b7
+      sourceRoot: ae7b4f1de469278a1b2243f65fd2f02a705ea19be4ff2e6f8d1f82ad0df83e8d
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete
+      projectTests: 349-of-349-passed
+      focusedShadowTests: 5-of-5-passed
+      syntheticLocalMasks: 2
+      syntheticBoundaryClasses: 2
+      syntheticExecutions: 4
+      freshProcesses: 4
+      freshProjections: 4
+      currentCatalogLocalClaims: 0
+      currentCatalogStatus: fallback-required
+      currentCatalogLocalMasksExecuted: 0
+      currentCatalogReceiptSha256: d4c4cc5af8f1a2d60129c85af9afc0c7b6b618f9d3209a381003e5f1d6fde8b4
+      currentCatalogReceiptFileSha256: 3e701f2299c3d3ea855bb94b6c30fc24e6944feca857349588cd6f26c4db5bdb
+      firstFailurePreservation: passed
+      exactCoverageMutationTests: passed
+      certificatesIssued: 0
+      canonicalMasksSkipped: 0
+      productionStateWritten: false
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 3A
+  checklistSection: Phase 3B
 
 nextPhase:
-  number: "3B"
-  name: compositional-theorem-qualification
+  number: 4
+  name: S1-D-dual-write-shadow-state
   requiresExplicitUserApproval: true
   entryAuditApproved: false
