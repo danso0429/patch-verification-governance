@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 8
+statusVersion: 9
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: 6
-phaseName: exact-certificate-store-and-independent-verifier
+currentPhase: 7
+phaseName: long-shadow-qualification-and-60-second-calibration
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-6-read-only-entry-audit-only
+  scope: phase-7-read-only-qualification-readiness-audit-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -58,12 +58,12 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-6-read-only-entry-audit
-  - audit-complete-exact-certificate-input-key
-  - design-immutable-content-addressed-certificate-schema
-  - design-independent-verifier-and-replay
-  - design-invalidation-corruption-and-retention
-  - prepare-phase-6A-implementation-plan
+  - perform-phase-7-read-only-qualification-readiness-audit
+  - design-frozen-source-target-policy-cohorts
+  - design-old-versus-new-comparison-matrix
+  - design-mutation-adversarial-and-failure-injection-matrix
+  - design-p50-p95-p99-and-safety-factor-calibration
+  - prepare-phase-7-qualification-plan
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -76,14 +76,14 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - implement-phase-6A-without-separate-user-approval
+  - start-phase-7-campaign-without-separate-user-approval
   - issue-reusable-certificates
   - skip-canonical-executions
-  - describe-prospective-key-match-as-certificate-hit
-  - skip-canonical-transactions
-  - change-canonical-gate
-  - begin-phase-6B-or-6C-automatically
-  - begin-phase-7
+  - change-canonical-policy
+  - change-cli-defaults
+  - promote-experimental-results
+  - hide-mismatches-or-incomplete-closure
+  - begin-phase-8
 
 completedPhases:
   - number: 0
@@ -319,14 +319,48 @@ completedPhases:
       realUserStateWritten: false
       certificatesIssued: 0
       publicationStatus: reviewed-not-published
+  - number: 6
+    name: exact-certificate-store-and-independent-verifier
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: ede49b1e4429f920e0842defcdf308058fd822ab
+      policyHash: 19f8f4b9792f6382be7c0919c42a6660046fba39ddebe24fbdd3ee0f60cc452e
+      sourceRoot: fc4f2b6c7f76ba0da985248e221c915463afeb1557769f783421c5c6811fa6c1
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete-experimental-only
+      projectTests: 363-of-363-passed
+      focusedCertificateTests: 3-of-3-passed
+      syntheticCertificatesGenerated: 1
+      syntheticMerkleLeaves: 2
+      independentVerificationAndReplay: passed
+      exactKeyInvalidation: passed
+      corruptionTruncationStaleMixedVersion: passed
+      dryRunGc: passed
+      experimentalRecordsLoaded: 1
+      experimentalRecordsAccepted: 1
+      experimentalMasksSkipped: 2
+      currentCatalogReportStatus: not-issued-global-fallback
+      currentCatalogReportSha256: b024f14dde07309e144038fa97ce7c1057c480c4de5781aaf4451543d33451d1
+      currentCatalogReportFileSha256: 65af7014e187d175e70edfda1c1397a9b9d0536c5b2e0e036f33b512aae3f8d8
+      productionCertificates: 0
+      currentCatalogMasksSkipped: 0
+      canonicalGateChanged: false
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 6
+  checklistSection: Phase 7
 
 nextPhase:
-  number: 7
-  name: long-shadow-qualification-and-60-second-calibration
+  number: 8
+  name: C0-canonical-policy-transition
   requiresExplicitUserApproval: true
   entryAuditApproved: false
