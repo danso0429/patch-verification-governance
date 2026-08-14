@@ -1,5 +1,5 @@
 schema: patch-verification-transition-status-v1
-statusVersion: 2
+statusVersion: 3
 lastApprovedAt: "2026-08-15"
 
 publication:
@@ -8,13 +8,13 @@ publication:
   mode: dedicated-public-governance-repository
   publicationStatus: prepared-not-yet-confirmed
 
-currentPhase: 1
-phaseName: inventory-and-classification
+currentPhase: 2
+phaseName: capability-engine-and-hypergraph
 currentPhaseStage: entry-audit-authorized
 phaseAdvancementApproved: true
 
 currentPhaseAuthorization:
-  scope: phase-1-read-only-entry-audit-only
+  scope: phase-2-read-only-entry-audit-only
   governanceStatusLag: false
   entryAuditApproved: true
   implementationApproved: false
@@ -58,13 +58,13 @@ approvedDecisions:
   independentCertificateVerifierRequired: true
 
 allowedWork:
-  - perform-phase-1-read-only-entry-audit
-  - inspect-effect-inventory-surfaces
-  - design-effect-manifest-schema
-  - design-inventory-compiler
-  - design-S0-P-read-only-projection
-  - design-L-B-G-U-candidate-classification
-  - prepare-phase-1-implementation-plan
+  - perform-phase-2-read-only-entry-audit
+  - inspect-complete-candidate-capability-surface
+  - design-deny-by-default-capability-model
+  - design-legacy-execution-wrapper-and-access-receipts
+  - design-action-graph-and-higher-order-hypergraph
+  - design-typed-boundaries-component-union-and-global-fallback
+  - prepare-phase-2-implementation-plan
 
 forbiddenWork:
   - skip-global-raw-masks
@@ -77,10 +77,11 @@ forbiddenWork:
   - advance-phase-without-user-approval
   - treat-shadow-state-as-canonical
   - treat-incomplete-evidence-as-pass
-  - implement-phase-1-without-separate-user-approval
-  - enforce-capabilities
+  - implement-phase-2-without-separate-user-approval
+  - enforce-capabilities-before-entry-audit-closure
   - modify-selection-planning-apply-status-revert-or-state
-  - begin-phase-2
+  - begin-component-verification
+  - begin-phase-3A
 
 completedPhases:
   - number: 0
@@ -107,14 +108,51 @@ completedPhases:
       cacheDifferentialReceiptSha256: 6e17336bae6eb6237129577d6d4a4b6d28671db2c82c63b3e0ee739a1e497feb
       dispositionRegistrySha256: 19aa29ea203af2bae9d9a8d3016a0d7bfb8fa3943334943895ff6589cfc29b48
       publicationStatus: reviewed-not-published
+    postClosureCorrections:
+      - discoveredInPhase: 1
+        commit: 0a9915b719a43fb88b47a5236aed624fd83da25b
+        disposition: current-active-correction
+        finding: generated-installers-had-not-embedded-the-phase-0-cache-clone-fix
+        effect: regenerated-all-four-installers-and-added-full-byte-parity-regressions
+        priorEvidencePreserved: true
+  - number: 1
+    name: inventory-and-classification
+    completionApproved: true
+    approvedAt: "2026-08-15"
+    approvalAuthority: explicit-current-user-session-authorization
+    implementationCohort:
+      resolution: session-local-only
+      publicTargetResolved: false
+      commit: 245666fcb6497abd9b74e08bdaa9e131ad9ec58d
+      policyHash: f35705f1b52c23eded7200826cf23fdcbf241130d0eef2ff453ffb7621a333e3
+      sourceRoot: d27f2324315aeaf406f89821eecec32bed4e1b3447f2775f35c98f2b11dfb39f
+    targetCohort:
+      commit: 85a65f3137b45c8de4a8d21a9887be213b1ac3fc
+      applicationRoot: c7be2eab4313422d1ae0c199094fd53cce12d0aa73a8ce7a3b6a61d623d822c3
+    evidence:
+      closureResult: phase-complete
+      projectTests: 45-of-45-passed
+      catalogPacks: 46
+      rawCatalogUnits: 1184
+      targetResolvedPacks: 34
+      targetResolvedUnits: 669
+      targetManagedPaths: 254
+      candidateTiers: L0-B0-G46-U0
+      inventorySha256: ba4b6698b75cd8f385a3b55d9b0cf0977f3fdaba3f3a6cfdde71fe048e07a733
+      projectionSha256: 7b20913f9b2d6a3f0513cc9911af6908a0eb61bd2a2bd8a8a82b7cf420b5b744
+      receiptPayloadSha256: 72fad5ad3ab78b9a2651255b93ceb4d35ee9bfaa1ab4f2028dcae2aa9f73cceb
+      receiptFileSha256: bb831ecb10976dc29d1c956a403ef0ad1d39dad45d57f3a058952a0c8a618cb0
+      generatedInstallerParity: full-byte-match
+      canonicalMasksSkipped: 0
+      publicationStatus: reviewed-not-published
 
 phaseCompletion:
   approved: false
   planPath: docs/plans/PATCH-COMBINATION-VERIFICATION-FINAL-TRANSITION-PLAN.md
-  checklistSection: Phase 1
+  checklistSection: Phase 2
 
 nextPhase:
-  number: 2
-  name: capability-engine-and-hypergraph
+  number: 3A
+  name: fresh-isolated-S0-P-shadow-verifier
   requiresExplicitUserApproval: true
   entryAuditApproved: false

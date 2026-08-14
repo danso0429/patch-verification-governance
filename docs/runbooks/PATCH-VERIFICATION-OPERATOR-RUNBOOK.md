@@ -102,28 +102,28 @@ On first failure:
 
 ## 7. Current phase guard
 
-Current status records Phase 0 as completed and authorizes a read-only Phase 1
-entry audit only. It does not authorize Phase 1 implementation.
+Current status records Phase 1 as completed and authorizes a read-only Phase 2
+entry audit only. It does not authorize Phase 2 implementation.
 
 Allowed categories:
 
-- inspect current effect-inventory surfaces
-- design the effect-manifest schema and inventory compiler
-- design the S0-P read-only projection
-- design candidate L/B/G/U classification
-- prepare the exact Phase 1 implementation scope, tests and rollback boundaries
+- inspect every candidate capability and execution surface
+- design deny-by-default capabilities, legacy wrappers and access receipts
+- design the action graph and higher-order interaction hypergraph
+- design typed boundaries, component union and Global Exhaustive fallback
+- prepare the exact Phase 2 implementation scope, tests and rollback boundaries
 
 Forbidden:
 
 - reducing raw-mask domain
-- implementing Phase 1 without separate user approval
-- enforcing capabilities
+- implementing Phase 2 without separate user approval
+- enforcing capabilities before the Phase 2 entry audit is approved
 - modifying selection, planning, apply, status, revert or persisted state
 - component certificate publication
 - production state migration
 - default gate change
 - Global Exhaustive removal
-- beginning Phase 2
+- beginning component verification or Phase 3A
 - phase advancement without approval
 
 ## 8. Completion report
